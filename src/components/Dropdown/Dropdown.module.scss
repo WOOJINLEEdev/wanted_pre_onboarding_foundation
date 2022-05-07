@@ -1,0 +1,91 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.dropDownSection {
+  width: 600px;
+  padding: 20px 0;
+  margin: 10px auto;
+  text-align: center;
+
+  .sectionTitle {
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .btnDrop {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 50px;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 50px;
+    background: colors.$GRAYE;
+    border: 2px solid colors.$GRAYD;
+    border-radius: 5px;
+
+    & svg {
+      width: 16px;
+      height: 16px;
+      margin: 15px 0;
+      fill: colors.$GRAYB;
+    }
+  }
+
+  .searchWrapper {
+    position: relative;
+    width: calc(300px - 4px);
+    margin: 10px auto;
+    text-align: left;
+    border: 2px solid colors.$GRAYD;
+    border-radius: 5px;
+
+    .searchInput {
+      width: 100%;
+      padding: 10px 40px;
+      font-size: 16px;
+      border: 0;
+      border-bottom: 2px solid colors.$GRAYD;
+      outline: 0;
+    }
+
+    & svg {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      width: 16px;
+      height: 16px;
+      margin: 13px 0;
+      fill: colors.$GRAYD;
+    }
+
+    .searchList {
+      padding: 5px 30px;
+    }
+
+    .searchItem {
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  border: 0;
+}

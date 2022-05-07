@@ -1,0 +1,92 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.toggleSection {
+  width: 600px;
+  padding: 20px 0;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  padding: 20px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.toggleBtn {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+}
+
+.toggleBtn input {
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.toggleText {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: colors.$GRAYC;
+  border-radius: 20px;
+  box-shadow: inset 1px 5px 1px colors.$GRAYF;
+  transition: 0.4s;
+
+  & .textDefault,
+  .textDetail {
+    z-index: 100;
+    width: 50%;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+
+.toggleText::before {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  box-sizing: border-box;
+  width: 48%;
+  height: 80%;
+  content: '';
+  background-color: colors.$WHITE;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.toggleBtn input:checked + .toggleText {
+  background-color: colors.$BACKGROUND;
+  box-shadow: inset 1px 5px 1px colors.$GRAYB;
+
+  .textDefault {
+    color: colors.$GRAYB;
+    transition: 0.6s;
+  }
+
+  .textDetail {
+    color: colors.$BIG_TITLE;
+    transition: 0.6s;
+  }
+}
+
+.toggleBtn input + .toggleText {
+  .textDetail {
+    color: colors.$GRAYB;
+  }
+}
+
+.toggleBtn input:checked + .toggleText::before {
+  transform: translateX(100%);
+}

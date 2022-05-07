@@ -1,11 +1,7 @@
-import { LogoImage } from './assets/svgs'
-import './App.scss'
-
 function App() {
   return (
     <div className='app'>
       <header className='appHeader'>
-        <LogoImage className='appLogo' alt='logo' />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

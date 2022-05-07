@@ -1,0 +1,71 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.tabSection {
+  width: 600px;
+  padding: 20px 0;
+  margin: 10px auto;
+  text-align: center;
+
+  .sectionTitle {
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .tabList {
+    display: flex;
+    width: 600px;
+    height: 50px;
+    margin: 0 auto;
+
+    .tabItem {
+      width: 200px;
+      line-height: 50px;
+    }
+  }
+}
+
+.tabBtn {
+  position: relative;
+  width: 100%;
+  height: 52px;
+  font-size: 16px;
+  background: colors.$WHITE;
+  border: 0;
+  border-bottom: 3px solid #cecece;
+
+  &.active {
+    font-weight: bold;
+  }
+}
+
+.indicator {
+  position: relative;
+  top: -1px;
+  width: 100%;
+  transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+
+  .indicatorBorder {
+    position: relative;
+    width: 200px;
+    max-width: 100%;
+    height: 3px;
+    background: colors.$BLUE;
+    border-radius: 3px;
+  }
+
+  &.first {
+    transform: translateX(0);
+  }
+
+  &.second {
+    transform: translateX(200px);
+  }
+
+  &.third {
+    transform: translateX(400px);
+  }
+}
